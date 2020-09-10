@@ -36,7 +36,8 @@ def graphique_pourcentage(liste):
 def graphique_secteurs(liste):
     x1, y1, x2, y2 = 200, 100, 600, 500
     debut_angle = 0
-    echelle = (len(liste)*36)/sum(liste)
+    x = 360/len(liste)
+    echelle = (len(liste)*x)/sum(liste)
     for i in liste:
         canvas.create_arc(x1, y1, x2, y2, start=debut_angle,
                           extent=echelle*i, style=PIESLICE)
