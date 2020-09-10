@@ -51,6 +51,4 @@ root = Tk()
 canvas = Canvas(root, width=800, height=600, background="white")
 canvas.pack(fill="both", expand=True)
 graphique_secteurs(liste)
-print(liste)
-
 root.mainloop()
