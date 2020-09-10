@@ -48,8 +48,21 @@ def dix_tours(bloc):
     return bloc
 
 
+def liste_6(liste):
+    res = []
+    n_listes = len(liste)//6
+    for i in range(n_listes):
+        res.append(liste[:6])
+        liste = liste[6:]
+    return res
+
+
 def hachage(liste):
-    
-
-
-print(hachage([0, 1, 2, 3, 4, 5, 1, 1, 1, 1, 1, 1, 10, 10, 10, 10, 10, 10]))
+    liste = liste_6(liste)
+    n = len(liste)
+    for i in range(n-1):
+        liste[0] = dix_tours(liste[0])
+        liste[1] = addition(liste[0], liste[1])
+        liste.pop(0)
+    liste[0] = dix_tours(liste[0])
+    return liste[0]
