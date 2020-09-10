@@ -1,3 +1,6 @@
+import random
+
+
 def addition(liste1, liste2):
     for i in range(len(liste1)):
         liste1[i] = (liste1[i] + liste2[i]) % 100
@@ -66,3 +69,37 @@ def hachage(liste):
         liste.pop(0)
     liste[0] = dix_tours(liste[0])
     return liste[0]
+
+
+def verification_preuve_de_travail(liste, preuve, max):
+    for i in preuve:
+        liste.append(i)
+    liste = hachage(liste)
+    return est_plus_petit(liste, max)
+
+
+def preuve_de_travail(liste, max):
+    for i in range(10000):
+        preuve = [random.randint(0, 99) for i in range(6)]
+        if verification_preuve_de_travail(liste, preuve, max):
+            return preuve
+    return None
+
+
+global Livre
+Livre = [[0, 0, 0, 0, 0, 0]]
+
+
+def ajout_transaction(transaction):
+    Livre.append(transaction)
+
+
+def minage():
+    liste = phrase_vers_liste(Livre[-1])
+    liste = preuve_de_travail(liste, [0, 50, 99])
+    Livre.append(liste)
+
+
+ajout_transaction("Ozair -100")
+minage()
+print(Livre)
