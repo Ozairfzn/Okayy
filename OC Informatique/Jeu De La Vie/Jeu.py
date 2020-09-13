@@ -2,7 +2,9 @@ from tkinter import *
 from random import *
 
 hauteur = 800
-taille = 5
+taille = 10
+t = [[randint(0, 1) for j in range(taille)]
+     for i in range(taille)]
 
 
 def nombre_voisins(i, j, tab):
@@ -125,22 +127,22 @@ def tableau(tab):
                     i*echelle, j*echelle, (i+1)*echelle, (j+1)*echelle, fill="red")
             else:
                 canvas.create_rectangle(
-                    i*echelle, j*echelle, (i+1)*echelle, (j+1)*echelle,)
-
-
-nouveau_tableau = [[randint(0, 1) for j in range(taille)]
-                   for i in range(taille)]
+                    i*echelle, j*echelle, (i+1)*echelle, (j+1)*echelle)
 
 
 def action_bouton():
     canvas.delete("all")
-
+    global t
+    t = evolution(t)
+    tableau(t)
     return
 
 
 root = Tk()
 canvas = Canvas(root, width=hauteur, height=hauteur, background="white")
 canvas.pack(side=LEFT, padx=5, pady=5)
+
+tableau(t)
 
 bouton_couleur = Button(root, text="Evoluer", width=20, command=action_bouton)
 bouton_couleur.pack()
