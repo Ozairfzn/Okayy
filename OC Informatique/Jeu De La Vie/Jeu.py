@@ -2,8 +2,8 @@ from tkinter import *
 from random import *
 
 hauteur = 800
-taille = 10
-t = [[randint(0, 1) for j in range(taille)]
+taille = 20
+t = [[0 for j in range(taille)]
      for i in range(taille)]
 
 
@@ -138,13 +138,39 @@ def action_bouton():
     return
 
 
+def action_clic_souris(event):
+    global t
+    canvas.delete("all")
+    canvas.focus_set()
+    x = event.x
+    y = event.y
+    i = (x*taille)//hauteur
+    j = (y*taille)//hauteur
+    if t[i][j] == 0:
+        t[i][j] = 1
+    elif t[i][j] == 1:
+        t[i][j] = 0
+    tableau(t)
+    return
+
+
+def aleatoire():
+    global t
+    t = [[randint(0, 1) for j in range(taille)]
+         for i in range(taille)]
+    tableau(t)
+
+
 root = Tk()
 canvas = Canvas(root, width=hauteur, height=hauteur, background="white")
 canvas.pack(side=LEFT, padx=5, pady=5)
 
 tableau(t)
 
+canvas.bind("<Button-1>", action_clic_souris)
 bouton_couleur = Button(root, text="Evoluer", width=20, command=action_bouton)
+bouton_couleur.pack()
+bouton_couleur = Button(root, text="Aleatoire", width=20, command=aleatoire)
 bouton_couleur.pack()
 bouton_quitter = Button(root, text="Quitter", width=20, command=root.quit)
 bouton_quitter.pack()
