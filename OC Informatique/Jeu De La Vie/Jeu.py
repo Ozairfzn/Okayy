@@ -156,6 +156,7 @@ def action_clic_souris(event):
 
 def aleatoire():
     global t
+    canvas.delete("all")
     t = [[randint(0, 1) for j in range(taille)]
          for i in range(taille)]
     tableau(t)
