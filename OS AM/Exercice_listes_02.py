@@ -12,5 +12,4 @@ def moy(L):
     somme = 0
     for i in L:
         somme += i
-    moyenne = arrondi(somme / len(L))
-    return moyenne
+    return arrondi(somme / len(L))

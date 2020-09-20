@@ -1,5 +1,4 @@
-n = eval(input("Entrez un nombre entier: "))
-
+n = int(input("Entrez un nombre entier: "))
 
 chaine = f"2^0"
 somme = 1

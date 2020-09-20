@@ -16,13 +16,10 @@ def sommeG(x, q, n):
         somme += x*q**terme
         chaine += f"{x}*{q}^{terme}  "
     return somme, chaine
-        
-print(sommeG(1, -2, 10))
 
 
 # c)
-# 1)    print(sommeA(1, 2, 8))
-# 2)    print(sommeA(0 ,5, 20))
-# 3)    print(sommeG(1, 2, 10))
-# 4)    Imppossible car n E N
-            
+  # 1)    print(sommeA(1, 2, 8))
+  # 2)    print(sommeA(0 ,5, 20))
+  # 3)    print(sommeG(1, 2, 10))
+  # 4)    Imppossible car n E N

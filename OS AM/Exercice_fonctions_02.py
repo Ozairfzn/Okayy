@@ -5,5 +5,4 @@ def diviseurs(n):
             L.append(i)
     return L
 
-
-# 2**19 - 1, 2**31 - 1, 
+# 2**19 - 1, 2**31 - 1,

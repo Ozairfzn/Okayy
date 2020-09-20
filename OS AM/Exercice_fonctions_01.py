@@ -28,7 +28,8 @@ def tab(fonction, depart, arrive, pas):
         y.append(fonction(depart))
         depart += pas
         print(f"{depart} --> {fonction(depart)}")
-        
+
+
 a = 3
 d = -1
 p = 0.5
