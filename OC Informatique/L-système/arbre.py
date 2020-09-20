@@ -15,7 +15,7 @@ from turtle import *
 
 speed("fastest")
 penup()
-goto(0, -200)
+goto(0, -500)
 left(90)
 pendown()
 color("red")
@@ -35,7 +35,7 @@ def iterer_lsysteme(depart, regle, k):
 
 
 pile = []
-for i in (iterer_lsysteme("A" ,("A","A[gA]A[dA][A]"), 4)):
+for i in (iterer_lsysteme("A" ,("A","A[gA]A[dA][A]"), 5)):
     if i == "A":
         forward(random.randint(20, 30))
     elif i == "g":
