@@ -8,8 +8,8 @@ vide = " "
 jeu = [[vide, vide, vide],
        [vide, vide, vide],
        [vide, vide, vide]]
-print(
-    f" --- --- ---\n| {1} | {2} | {3} |\n --- --- ---\n| {4} | {5} | {6} |\n --- --- ---\n| {7} | {8} | {9} |\n --- --- ---\n")
+
+print(f" -1- -2- -3-\n| {jeu[0][0]} | {jeu[0][1]} | {jeu[0][2]} |\n -4- -5- -6-\n| {jeu[1][0]} | {jeu[1][1]} | {jeu[1][2]} |\n -7- -8- -9-\n| {jeu[2][0]} | {jeu[2][1]} | {jeu[2][2]} |\n --- --- ---\n")
 
 
 def gagnat(t):
@@ -58,13 +58,13 @@ while not gagnat(jeu):
     elif tour == 1:
         pos = int(input("Joueur 'O': ")) - 1
         while pos not in [0, 1, 2, 3, 4, 5, 6, 7, 8]:
-            pos = int(input("Joueur 'X': ")) - 1
+            pos = int(input("Joueur 'O': ")) - 1
         while jeu[pos//3][pos % 3] != vide:
             pos = int(input("Joueur 'O': ")) - 1
         jeu[pos//3][pos % 3] = o
         tour -= 1
     os.system("cls")
-    print(f" --- --- ---\n| {jeu[0][0]} | {jeu[0][1]} | {jeu[0][2]} |\n --- --- ---\n| {jeu[1][0]} | {jeu[1][1]} | {jeu[1][2]} |\n --- --- ---\n| {jeu[2][0]} | {jeu[2][1]} | {jeu[2][2]} |\n --- --- ---\n")
+    print(f" -1- -2- -3-\n| {jeu[0][0]} | {jeu[0][1]} | {jeu[0][2]} |\n -4- -5- -6-\n| {jeu[1][0]} | {jeu[1][1]} | {jeu[1][2]} |\n -7- -8- -9-\n| {jeu[2][0]} | {jeu[2][1]} | {jeu[2][2]} |\n --- --- ---\n")
 
 
 if gagnat_print(jeu) != None:
