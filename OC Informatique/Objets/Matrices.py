@@ -34,3 +34,11 @@ class Matrice:
         m = Matrice(self.a*other.a + self.b*other.c, self.a*other.b + self.b*other.d,
                     self.c*other.a + self.d*other.c, self.c*other.b + self.d*other.d)
         return m
+
+# Fib
+M = Matrice(0, 1, 1, 1)
+Mn = M
+
+for i in range(300):
+    Mn *= M
+print(Mn)

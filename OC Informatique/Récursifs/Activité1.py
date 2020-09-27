@@ -5,7 +5,7 @@ def somme_carres_R(n):
         return somme_carres_R(n-1) + n**2
 
 
-def inverseR(L, LR):
+def inverseR(L, LR=[]):
     if len(L) == 0:
         return L
     LR.append(L[-1])
