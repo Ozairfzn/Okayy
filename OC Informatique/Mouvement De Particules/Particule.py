@@ -19,10 +19,22 @@ class Particule():
         self.x = self.x + self.vx
         self.y = self.y + self.vy
 
+    def action_gravite(self, gravite=2):
+        self.vy -= gravite
+        self.x = self.x + self.vx
+        self.y = self.y + self.vy
+    
+    def rebondir(self):
+        x, y = self.x, self.y
+        i, j = xy_vers_ij(x, y)
+        if i <= 0 or i >= Largeur:
+            self.vx = -self.vx
+        if j <= 0 or j >= Hauteur:
+            self.vy = -self.vy
+
     def affiche(self, avec_fleche=False):
         x, y, vx, vy, m = self.x, self.y, self.vx, self.vy, self.m
         i, j = xy_vers_ij(x, y)
-
         echelle = 1
 
         if avec_fleche:
@@ -47,10 +59,13 @@ def xy_vers_ij(x, y):
 canvas = Canvas(root, width=Largeur, height=Hauteur, background="white")
 canvas.pack(side=LEFT, padx=5, pady=5)
 
-p = Particule(-300,-100,50,30,10)
+p = Particule(-300, 100, 10, 10, 1)
 
-for k in range(10):
-    p.affiche(avec_fleche=True)
-    p.action_vitesse()
+for k in range(100):
+    p.affiche()
+    # p.action_vitesse()
+    p.action_gravite()
+    p.rebondir()
+
 
 root.mainloop()
