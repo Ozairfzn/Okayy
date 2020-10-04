@@ -1,7 +1,7 @@
 from decimal import *
 
 
-pr = 300
+pr = 324
 getcontext().prec = pr
 
 
@@ -10,20 +10,18 @@ def f(x):
 
 
 def bal(a, pas):
-    if f(a) < 0:
-        while f(a) < 0:
-            a += pas
-    else:
-        while f(a) > 0:
-            a -= pas
-    return a-pas, a
+    while f(a) < 0:
+        a += pas
+    while f(a) > 0:
+        a -= pas
+    return a
 
 
 def zeros(prec):
     a = 0
-    for i in range(1, prec+1):
-        a = bal(Decimal(a), Decimal(10**-i))[0]
+    for i in range(1, prec):
+        a = bal(Decimal(a), Decimal(10**-i))
     return Decimal(a)
 
 
-print(zeros(pr-1))
+print(zeros(pr))
