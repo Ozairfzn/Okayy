@@ -84,12 +84,12 @@ def rebond(h1, h2, f):
 # Exercice 11
 def triplet_pythagor(n):
     L = []
-    for a in range(n):
-        for b in range(n):
-            for c in range(n):
-                if (c**2 == a**2+b**2) and (a != b and b != c and a != c) and (a < b):
-                    L.append((a,b,c))
-    return L 
+    for a in range(2, n):
+        for b in range(2, n):
+            for c in range(2, n):
+                if (c**2 == a**2+b**2) and (a <= b):
+                    L.append((a, b, c))
+    return L
 
 # Exercice 12
 def syracuse(u):
