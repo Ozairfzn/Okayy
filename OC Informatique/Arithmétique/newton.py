@@ -1,7 +1,9 @@
 from decimal import *
 
+
 pr = 10_000
 getcontext().prec = pr
+boucle = int(pr**0.5)
 
 
 def f(x):
@@ -13,6 +15,7 @@ def df(x):
 
 
 g = 1
-for i in range(1, pr//50):
+for i in range(1, boucle):
     g -= f(Decimal(g))/df(Decimal(g))
+
 print(g)

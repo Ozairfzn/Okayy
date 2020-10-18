@@ -1,5 +1,4 @@
-from math import *
-import time
+from math import sqrt, floor
 
 
 def premier(p):
@@ -9,7 +8,7 @@ def premier(p):
         return False
     elif p % 2 == 0:
         return False
-    n = int(p**(0.5))
+    n = int(sqrt(p))
     for i in range(3, n, 2):
         if p % i == 0:
             return False
