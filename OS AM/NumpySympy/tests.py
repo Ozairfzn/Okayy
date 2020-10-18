@@ -2,7 +2,7 @@ from sympy import *
 
 
 init_printing(use_latex=True)
-x = symbols("x")
+x, y = symbols("x y")
 
-
-pprint(Integral(sqrt(1/x), x))
+res = integrate((1/x), x)
+pprint(res)
