@@ -35,7 +35,7 @@ def iterer_lsysteme(depart, regle, k):
 
 
 pile = []
-for i in (iterer_lsysteme("A" ,("A","A[gA]A[dA][A]"), 5)):
+for i in (iterer_lsysteme("A", ("A", "A[gA]A[dA][A]"), 5)):
     if i == "A":
         forward(random.randint(20, 30))
     elif i == "g":

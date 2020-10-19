@@ -8,7 +8,7 @@ def premier(p):
         return False
     elif p % 2 == 0:
         return False
-    n = int(sqrt(p))
+    n = int(sqrt(p))+1
     for i in range(3, n, 2):
         if p % i == 0:
             return False

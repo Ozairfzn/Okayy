@@ -1,44 +1,43 @@
-"""
-#Exercice 4.1
+# Exercice 4.1
 n = int(input("Donnez une année"))
 
 if n % 400 == 0:
-  print("Cette année est bissextile")
+    print("Cette année est bissextile")
 elif n % 4 == 0 and n % 100 == 0:
-  print("Cette année n'est pas bissextile")
+    print("Cette année n'est pas bissextile")
 elif n % 4 == 0:
-  print("Cette année est bissextile")
+    print("Cette année est bissextile")
 else:
-  print("Cette année n'est pas bissextile")
+    print("Cette année n'est pas bissextile")
 
-#Exercice 4.2
+# Exercice 4.2
 n = 51
-while n < 150 :
-  print(n)
-  n = n + 2
+while n < 150:
+    print(n)
+    n = n + 2
 
-#Exercice 4.3
+# Exercice 4.3
 n = 1
 while n <= 20:
-  print(n,"* 7 =", 7*n)
-  n += 1
+    print(n, "* 7 =", 7*n)
+    n += 1
 
-#Exercice 4.4
+# Exercice 4.4
 n = 0
 S = 0
 while n < 1000:
-  n = n + 1
-  S = S + n
+    n = n + 1
+    S = S + n
 print(S)
 
-#Execice 4.5
+# Execice 4.5
 n = 1
 while n <= 20:
-  if (7*n) % 3 == 0:
-    print(7*n,"*")
-  else:
-    print(7*n)
-  n += 1
+    if (7*n) % 3 == 0:
+        print(7*n, "*")
+    else:
+        print(7*n)
+    n += 1
 
 # Exercice 4.6
 S = eval(input("Entrez un capital: "))
@@ -46,8 +45,8 @@ t = eval(input("Entrez un taux d'intérêt: "))
 a = 0
 
 while S < 1000:
-  S = S + t * S
-  a = a + 1
+    S = S + t * S
+    a = a + 1
 
 print("Le capital sera doublé après", a, "ans")
 
@@ -55,18 +54,18 @@ print("Le capital sera doublé après", a, "ans")
 n = 0
 
 while n <= 7:
-  n += 1
-  print (n * "*")
+    n += 1
+    print(n * "*")
 
-#Exercice 4.9
+# Exercice 4.9
 a = int(input("Entrez la borne inférieure: "))
 b = int(input("Entrez la borne supérieure: "))
 
 s = 0
 while a <= b:
-  if a % 15 == 0:
-    s = s + a
-  a = a + 1
+    if a % 15 == 0:
+        s = s + a
+    a = a + 1
 
 print(s)
 
@@ -76,17 +75,17 @@ b = int(input("Entrez la borne supérieure: "))
 
 s = 0
 while a <= b:
-  if a % 5 == 0 or a % 3 == 0:
-    s = s + a
-  a = a + 1
+    if a % 5 == 0 or a % 3 == 0:
+        s = s + a
+    a = a + 1
 
 print(s)
 
-#Exercice 4.10
+# Exercice 4.10
 n = 0
 while n < 100:
-  print("Je dois écrire 100 fois un texte inutile.")
-  n += 1
+    print("Je dois écrire 100 fois un texte inutile.")
+    n += 1
 
 
 # Exercice 4.11
@@ -152,4 +151,3 @@ while fraction_piste_a_parcourir > 0:
     fraction_piste_a_parcourir -= vitesse_tortue/(10 + jours*vitesse_piste)
     jours += 1
 print(jours)
-"""

@@ -35,6 +35,7 @@ class Matrice:
                     self.c*other.a + self.d*other.c, self.c*other.b + self.d*other.d)
         return m
 
+
 # Fib
 M = Matrice(0, 1, 1, 1)
 Mn = M

@@ -32,7 +32,8 @@ def iterer_lsysteme_1(depart, regle, k):
         ini, res = res, ""
     return ini
 
-regle = ("A","AgAdAdAgA")
+
+regle = ("A", "AgAdAdAgA")
 speed("fastest")
 penup()
 goto(-500, -300)

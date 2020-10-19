@@ -25,7 +25,7 @@ def memory():
         print(f"Votre nombre {len(L)}e est {L[-1]}")
         time.sleep(2)
         os.system("cls")
-        
+
         for i in range(len(L)):
             n = int(input(f"Entrez le {i+1}e nombre: "))
             if n != L[i]:
@@ -39,7 +39,7 @@ def monty_hall():
     choix = int(input("Choissiez entre les portes: "))
     while choix not in Portes:
         choix = int(input("Choissiez entre les portes: "))
-    
+
     montrer = random.choice(Portes)
     while montrer == voiture or montrer == choix:
         montrer = random.choice(Portes)
@@ -57,7 +57,7 @@ def monty_hall():
             return "Vous avez gagné !"
         else:
             return "Vous avez perdu !"
-    
+
 
 def dés(n):
     somme9, somme10 = 0, 0
@@ -65,7 +65,7 @@ def dés(n):
     for i in range(n):
         somme = 0
         for j in range(3):
-            somme += random.randint(1,6)
+            somme += random.randint(1, 6)
 
         if somme == 9:
             somme9 += 1
@@ -73,5 +73,3 @@ def dés(n):
             somme10 += 1
 
     return f"9:  {somme9/n*100}%\n10: {somme10/n*100}%"
-
-

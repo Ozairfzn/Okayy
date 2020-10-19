@@ -10,6 +10,8 @@ def trois_cinq(a, b):
     return sommea, sommeb
 
 # Exercice 3
+
+
 def ppmc(a, b):
     plus_grand = max(a, b)
     i = plus_grand
@@ -19,12 +21,16 @@ def ppmc(a, b):
         i += plus_grand
 
 # Exercice 4
+
+
 def tab(a, b):
     for i in range(a, b+1):
         print(f"f({i}) = {i**2 - 2*i - 2}")
     return
 
 # Exercice 5
+
+
 def triangle(n):
     n += 1
     for i in range(1, n):
@@ -37,6 +43,8 @@ def triangle(n):
     return " "
 
 # Exercice 6
+
+
 def astérisque(chaine):
     res = ""
     for i in chaine:
@@ -44,6 +52,8 @@ def astérisque(chaine):
     return res[:-1]
 
 # Exercice 7
+
+
 def inverse1(chaine):
     res = ""
     for i in chaine:
@@ -60,6 +70,8 @@ def inverse2(chaine):
     return res
 
 # Exercice 8
+
+
 def remplace_e(chaine):
     res = ""
     for i in chaine:
@@ -70,10 +82,14 @@ def remplace_e(chaine):
     return res
 
 # Exercice 9
+
+
 def palindrome(mot):
     return mot == inverse1(mot)
 
 # Exercice 10
+
+
 def rebond(h1, h2, f):
     res = 0
     while h1 >= h2:
@@ -82,6 +98,8 @@ def rebond(h1, h2, f):
     return res
 
 # Exercice 11
+
+
 def triplet_pythagor(n):
     L = []
     for a in range(2, n):
@@ -92,6 +110,8 @@ def triplet_pythagor(n):
     return L
 
 # Exercice 12
+
+
 def syracuse(u):
     L = []
     while u != 1:
@@ -101,4 +121,3 @@ def syracuse(u):
         else:
             u = 3*u+1
     return L
-

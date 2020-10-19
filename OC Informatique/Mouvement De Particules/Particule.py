@@ -23,7 +23,7 @@ class Particule():
         self.vy -= gravite
         self.x = self.x + self.vx
         self.y = self.y + self.vy
-    
+
     def rebondir(self):
         x, y = self.x, self.y
         i, j = xy_vers_ij(x, y)

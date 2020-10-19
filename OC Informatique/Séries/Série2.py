@@ -11,13 +11,13 @@ aire_disque = 2*PI * rayon**2
 print(f"L'aire du disque vaut {aire_disque}")
 
 # Exercice 1.7
-#4
+# 4
 x = 7
-#2
+# 2
 y = 2 * x
-#1
+# 1
 y = y - 1
-#4
+# 4
 x = x + 3 * y
 
 # Exercice 1.8
@@ -34,4 +34,3 @@ d = int(input("Entrez un nombre par le quel on divisera le premier: "))
 q = n // d
 r = n % d
 print(f"{n} = {d} * {q} + {r}")
-

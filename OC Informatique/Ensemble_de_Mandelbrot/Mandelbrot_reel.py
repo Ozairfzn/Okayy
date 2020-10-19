@@ -1,4 +1,3 @@
-
 def f(x, y, a, b): return (x**2 - y**2 + a), (2*x*y + b)
 
 

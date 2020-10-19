@@ -18,7 +18,7 @@ def res(x, prec):
 
         x += prec
 
-    return f"x = {x1}, y = {y1}, z = {z1} \nv = {plus_grand}"
+    return f"x = {x1}, y = {y1}, z = {z1} \nV = {plus_grand}"
 
 
 print(res(0, 0.001))

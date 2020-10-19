@@ -32,7 +32,6 @@ def iterer_lsysteme_2(depart, regle1, regle2, k):
     return ini
 
 
-
 for i in (iterer_lsysteme_2("AdBdB", ("A", "AdBgAgBdA"), ("B", "BB"), 5)):
     if i == "A" or i == "B":
         forward(20)
