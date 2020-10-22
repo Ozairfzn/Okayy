@@ -91,7 +91,7 @@ def palindrome(mot):
 
 
 def rebond(h1, h2, f):
-    res = 0
+    res = -1
     while h1 >= h2:
         res += 2
         h1 = h1-(h1/f)
