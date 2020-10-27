@@ -18,6 +18,7 @@ for i in range(-200, 200):
 
 
 speed(10)
+delay(0)
 penup()
 goto(X[0], Y[0])
 pendown()

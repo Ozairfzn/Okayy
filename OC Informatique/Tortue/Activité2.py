@@ -1,6 +1,7 @@
 from turtle import *
 
 speed("fastest")
+delay(0)
 width(3)
 
 penup()

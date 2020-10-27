@@ -4,6 +4,7 @@ from math import *
 n = 2
 modulo = 100
 speed("fastest")
+delay(0)
 
 
 L = []

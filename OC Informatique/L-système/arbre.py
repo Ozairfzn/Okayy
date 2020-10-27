@@ -12,7 +12,7 @@ d : tourne à droite d’un angle fixé (30°)
 import random
 from turtle import *
 
-
+delay(0)
 speed("fastest")
 penup()
 goto(0, -500)

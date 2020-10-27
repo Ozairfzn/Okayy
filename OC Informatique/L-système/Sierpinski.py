@@ -11,6 +11,7 @@ from turtle import *
 
 
 speed("fastest")
+delay(0)
 penup()
 goto(-500, -300)
 pendown()

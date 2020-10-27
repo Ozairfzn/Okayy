@@ -34,6 +34,7 @@ def iterer_lsysteme_1(depart, regle, k):
 
 
 regle = ("A", "AgAdAdAgA")
+delay(0)
 speed("fastest")
 penup()
 goto(-500, -300)
