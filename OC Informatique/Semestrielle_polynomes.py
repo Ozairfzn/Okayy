@@ -53,11 +53,11 @@ def afficher_polynome(polynome):
 def polynome_meme_taille(polynome1, polynome2):
     if len(polynome1) > len(polynome2):
         while len(polynome1) > len(polynome2):
-            polynome2.insert(0, 0)
+            polynome2.append(0)
 
     elif len(polynome1) < len(polynome2):
         while len(polynome1) < len(polynome2):
-            polynome1.insert(0, 0)
+            polynome1.append(0)
 
     return polynome1, polynome2
 
@@ -154,21 +154,3 @@ def limites_fractions_rationnlles_infini(polynome1, polynome2):
             return "-∞"
         else:
             return "∞"
-
-
-def limites_fractions_rationnlles(polynome1, polynome2, point):
-    if evaluer_polynome(polynome2, point) != 0:
-        return evaluer_polynome(polynome1, point) / evaluer_polynome(polynome2, point)
-
-    dx = 0.0001
-    a_plus = evaluer_polynome(polynome1, point+dx) / \
-        evaluer_polynome(polynome2, point+dx)
-    a_moin = evaluer_polynome(polynome1, point-dx) / \
-        evaluer_polynome(polynome2, point-dx)
-
-    if a_plus - a_moin > 10000:
-        return "∄"
-    elif a_plus > 10000:
-        return "∞"
-    else:
-        return "-∞"
