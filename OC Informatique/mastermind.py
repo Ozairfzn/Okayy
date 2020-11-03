@@ -44,7 +44,6 @@ print("(# un bien place, o un mal place)")
 
 
 combinaison = [randint(1, 6) for _ in range(4)]
-combinaison = [5, 2, 1, 2]
 proposition = [0, 0, 0, 0]
 
 coup = 10
