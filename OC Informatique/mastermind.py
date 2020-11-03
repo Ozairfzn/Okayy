@@ -32,6 +32,7 @@ def règles():
     for i in indice_pas_utilisés:
         if proposition[i] in copie:
             chaine.append("o")
+            copie.remove(proposition[i])
 
     return sorted(chaine)
 
