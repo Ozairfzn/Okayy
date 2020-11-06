@@ -2,7 +2,9 @@ def input_nombre(text):
     while True:
         try:
             x = eval(input(text))
-            return x
+            if isinstance(x, int) or isinstance(x, float):
+                return x
+            print("Oops! Il y a eu une erreur.")
         except (ValueError, NameError):
             print("Oops! Il y a eu une erreur.")
 
@@ -47,7 +49,7 @@ def afficher_polynome(polynome):
     else:
         résultat += f" + ({polynome[1]}) x + ({polynome[0]})"
 
-    return résultat[3:]
+    print(résultat[3:])
 
 
 def polynome_sans_0s_inutiles(polynome):
@@ -145,6 +147,16 @@ def racines_rationnelles(polynome):
     return list(set(racine_rationnelle))
 
 
+def schéma_de_Horner(polynome, monome):
+    Q = [polynome[-1]]
+    facteur = -monome[0] / monome[1]
+
+    for i in range(len(polynome)-2, -1, -1):
+        Q.insert(0, facteur*Q[0] + polynome[i])
+
+    return Q[1:], Q[0]
+
+
 def division_euclidienne(polynome1, polynome2):
     return
 
@@ -191,4 +203,4 @@ def dérivée_fractions_rationnelles(polynome1, polynome2):
         polynome1), polynome2), multiplier_deux_polynômes(dérivée_polynome(polynome2), polynome1)))
     dénom = (multiplier_deux_polynômes(polynome2, polynome2))
 
-    return afficher_polynome(nom)+"  /  "+afficher_polynome(dénom)
+    return nom, dénom
