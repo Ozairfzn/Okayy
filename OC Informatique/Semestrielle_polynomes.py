@@ -147,18 +147,24 @@ def racines_rationnelles(polynome):
     return list(set(racine_rationnelle))
 
 
-def schéma_de_Horner(polynome, monome):
-    Q = [polynome[-1]]
-    facteur = -monome[0] / monome[1]
-
-    for i in range(len(polynome)-2, -1, -1):
-        Q.insert(0, facteur*Q[0] + polynome[i])
-
-    return Q[1:], Q[0]
-
-
 def division_euclidienne(polynome1, polynome2):
-    return
+    p1 = list(polynome1)
+    p2 = list(polynome2)
+    Q = []
+
+    if len(polynome1) < len(polynome2):
+        return polynome1, polynome2
+
+    while len(p1) >= len(p2):
+        q = [0 for i in range(len(p1))]
+        q[len(p1)-len(p2)] = p1[-1]/p2[-1]
+
+        Q.insert(0, p1[-1]/p2[-1])
+
+        p1 = polynome_sans_0s_inutiles(soustraire_deux_polynômes(
+            p1, (multiplier_deux_polynômes(p2, q))))
+
+    return Q, p2, p1
 
 
 def limites_polynomes_infini(polynome):
