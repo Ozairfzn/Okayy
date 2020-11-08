@@ -19,7 +19,9 @@ def input_entier(text):
 
 
 def demander_polynome(nom):
-    deg = input_entier(f"Entrer le degré du polynôme {nom}(x): ")
+    deg = -1
+    while deg < 0:
+        deg = input_entier(f"Entrer le degré du polynôme {nom}(x): ")
     polynome = []
 
     for i in range(deg+1):
