@@ -9,7 +9,7 @@ c = eval(input(f"Entrez le coefficient c de ax{carre} + bx + c: "))
 if a == 0 and b == 0 and c == 0:
     print(f"La fonction {a}x{carre} + ({b}x) + ({c}) à une infinté de zéros")
 elif a == 0 and b == 0:
-    print(f"Le zéro de la fonction {a}x{carre} + ({b})x + ({c})  est {c}")
+    print(f"La fonction {a}x{carre} + ({b})x + ({c})  n'a pas de zéro")
 elif a == 0:
     print(f"Le zéro de la fonction {a}x{carre} + ({b})x + ({c})  est {-c/b}")
 else:

@@ -39,6 +39,8 @@ def afficher_polynome(polynome):
         coefficient = polynome[i]
         if coefficient == 0:
             pass
+        elif coefficient == 1:
+            résultat = f"{résultat} + x^{i}"
         else:
             résultat = f"{résultat} + ({(coefficient)}) x^{i}"
 
@@ -177,6 +179,16 @@ def division_euclidienne(polynome1, polynome2):
             p1, (multiplier_deux_polynômes(p2, q))))
 
     return Q, p2, p1
+
+
+def factoriser(polynome):
+    sol = racines_rationnelles(polynome)
+    res = []
+    for i in sol:
+        polynome = schéma_de_Horner(polynome, [i, 1])[0]
+        res.append([i, 1])
+    res.append(polynome)
+    return res
 
 
 def limites_polynomes_infini(polynome):
