@@ -184,11 +184,25 @@ def division_euclidienne(polynome1, polynome2):
 def factoriser(polynome):
     sol = racines_rationnelles(polynome)
     res = []
+
     for i in sol:
-        polynome = schéma_de_Horner(polynome, [i, 1])[0]
-        res.append([i, 1])
+        polynome = schéma_de_Horner(polynome, [-i, 1])[0]
+        res.append([-i, 1])
     res.append(polynome)
+
     return res
+
+
+def factoriser_fractions(polynome1, polynome2):
+    polynome1 = factoriser(polynome1)
+    polynome2 = factoriser(polynome2)
+
+    for i in polynome1:
+        if i in polynome2:
+            polynome1.remove(i)
+            polynome2.remove(i)
+
+    return polynome1, polynome2
 
 
 def limites_polynomes_infini(polynome):
