@@ -10,9 +10,11 @@ def proposition_joueur():
             if len(proposition) == 4 and n == 4:
                 break
             print("Oops! Il y a eu une erreur.")
+            print("Voici un exemple de proposition valide: 4 2 5 1")
 
         except (ValueError, NameError):
             print("Oops! Il y a eu une erreur.")
+            print("Voici un exemple de proposition valide: 4 2 5 1")
 
     return proposition
 
