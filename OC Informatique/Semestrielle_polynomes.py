@@ -233,16 +233,19 @@ def limites_fractions_rationnlles(polynome1, polynome2, point):
     if evaluer_polynome(polynome2, point) != 0:
         return evaluer_polynome(polynome1, point) / evaluer_polynome(polynome2, point)
 
+    if evaluer_polynome(polynome1, point) == 0 and evaluer_polynome(polynome2, point) == 0:
+        return evaluer_polynome(dérivée_polynome(polynome1), point) / evaluer_polynome(dérivée_polynome(polynome2), point)
+
     dx = 0.000001
     a_plus = evaluer_polynome(polynome1, point+dx) / \
         evaluer_polynome(polynome2, point+dx)
     a_moin = evaluer_polynome(polynome1, point-dx) / \
         evaluer_polynome(polynome2, point-dx)
 
-    if a_plus > 10000 and a_moin < 10000 or a_plus < 10000 and a_moin > 10000:
+    if (a_plus > 10000 and a_moin < 10000) or (a_plus < 10000 and a_moin > 10000):
         return "∄"
     elif abs(a_plus - a_moin) < 0.1:
-        return round(a_plus + (a_plus - a_moin), 3)
+        return round((a_plus + a_moin)/2, 3)
     elif a_plus > 10000 and a_moin > 10000:
         return "∞"
     elif a_plus < 10000 and a_moin < 10000:
