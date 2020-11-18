@@ -48,13 +48,11 @@ print("(# un bien place, o un mal place)")
 
 combinaison = [randint(1, 6) for _ in range(4)]
 #combinaison = [5, 2, 1, 2]
-#combinaison = [1, 2, 1, 3]
-#combinaison = [4, 2, 1, 3]
-# print(combinaison)
+#print(combinaison)
 proposition = [0, 0, 0, 0]
 
 coup = 10
-while proposition != combinaison and coup > 0:
+while proposition != combinaison:
     proposition = proposition_joueur()
 
     coup -= 1
