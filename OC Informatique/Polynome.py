@@ -218,7 +218,7 @@ def racines_rationnelles(polynome):
     '''Trouve les racine rationnlles d'un polynôme'''
     if len(polynome) == 0:
         return
-    
+
     a0 = abs(polynome[0])
     an = abs(polynome[-1])
 
@@ -268,6 +268,7 @@ def division_euclidienne(polynome1, polynome2):
 
 
 def factoriser(polynome):
+    '''Renvoie une chaine ou le polynôme initaile est factoriser'''
     sol = racines_rationnelles(polynome)
     res = []
 
@@ -278,6 +279,9 @@ def factoriser(polynome):
 
     chaine = ""
     for i in res:
+        if len(i) == 1:
+            chaine += str(i[0])
+        else:
             coef = i[0]
             if coef > 0:
                 chaine += f"(x + {coef})"
@@ -288,18 +292,19 @@ def factoriser(polynome):
 
 
 def factoriser_fractions(polynome1, polynome2):
-    sol = racines_rationnelles(polynome1)
+    '''Renvoie une chaine ou la fraction polynôme initaile est si'''
+    sol1 = racines_rationnelles(polynome1)
     res1 = []
 
-    for i in sol:
+    for i in sol1:
         polynome1 = schéma_de_Horner(polynome1, [-i, 1])[0]
         res1.append([-i, 1])
     res1.append(polynome1)
 
-    sol = racines_rationnelles(polynome2)
+    sol2 = racines_rationnelles(polynome2)
     res2 = []
 
-    for i in sol:
+    for i in sol2:
         polynome2 = schéma_de_Horner(polynome2, [-i, 1])[0]
         res2.append([-i, 1])
     res2.append(polynome2)
@@ -308,18 +313,25 @@ def factoriser_fractions(polynome1, polynome2):
         if i in res2:
             res1.remove(i)
             res2.remove(i)
-    
+
     chaine = ""
     for i in res1:
+        if len(i) == 1:
+            chaine += str(i[0])
+        else:
             coef = i[0]
             if coef > 0:
                 chaine += f"(x + {coef})"
             else:
                 chaine += f"(x - {abs(coef)})"
+
     chaine += "\n"
     chaine += len(chaine)*"―"
     chaine += "\n"
     for i in res2:
+        if len(i) == 1:
+            chaine += str(i[0])
+        else:
             coef = i[0]
             if coef > 0:
                 chaine += f"(x + {coef})"
@@ -330,6 +342,9 @@ def factoriser_fractions(polynome1, polynome2):
 
 
 def limites_polynomes_infini(polynome):
+    '''Calcule la limite de polynôme lorsque x tend vers +∞'''
+    if len(polynome) == 1:
+        return polynome[0]
     if polynome[-1] > 0:
         return "∞"
     else:
@@ -337,6 +352,7 @@ def limites_polynomes_infini(polynome):
 
 
 def limites_fractions_rationnlles_infini(polynome1, polynome2):
+    '''Calcule la limite de polynôme1 diviser par polynôme2 lorsque x tend vers +∞'''
     if len(polynome1) < len(polynome2):
         return 0
 
@@ -376,25 +392,25 @@ def limites_fractions_rationnlles(polynome1, polynome2, point):
         return "-∞"
 
 
-def dérivée_polynome(polynome):
-    dérivée = []
+def derivee_polynome(polynome):
+    derivee = []
 
     for i in range(1, len(polynome)):
-        dérivée.append(i*polynome[i])
+        derivee.append(i*polynome[i])
 
-    return dérivée
-
-
-def dérivée_produit_polynome(polynome1, polynome2):
-    return dérivée_polynome(multiplier_deux_polynômes(polynome1, polynome2))
+    return derivee
 
 
-def dérivée_fractions_rationnelles(polynome1, polynome2):
-    nom = (soustraire_deux_polynômes(multiplier_deux_polynômes(dérivée_polynome(
-        polynome1), polynome2), multiplier_deux_polynômes(dérivée_polynome(polynome2), polynome1)))
-    dénom = (multiplier_deux_polynômes(polynome2, polynome2))
+def derivee_produit_polynome(polynome1, polynome2):
+    return derivee_polynome(multiplier_deux_polynômes(polynome1, polynome2))
 
-    return nom, dénom
+
+def derivee_fractions_rationnelles(polynome1, polynome2):
+    nom = (soustraire_deux_polynômes(multiplier_deux_polynômes(derivee_polynome(
+        polynome1), polynome2), multiplier_deux_polynômes(derivee_polynome(polynome2), polynome1)))
+    denom = (multiplier_deux_polynômes(polynome2, polynome2))
+
+    return nom, denom
 
 
 ''' ----------------------------------------------------------------------- '''
@@ -410,15 +426,21 @@ Choix 4:  Soustraire les polynômes.
 Choix 5:  Multiplier les polynômes.
 Choix 6:  Evaluer un des polynômes en un point.
 Choix 7:  Calculer un tableau de valeurs pour un des polynômes.
-Choix 8:  Trouver les racines rationnelles
-Choix 9:  Division euclidienne des polynômes
-Choix 10: Factoriser un des polynôme
-Choix 11: Simplifier la fraction des polynômes
-Choix 12: Quitter le programme
+Choix 8:  Trouver les racines rationnelles.
+Choix 9:  Division euclidienne des polynômes.
+Choix 10: Factoriser un des polynôme.
+Choix 11: Simplifier la fraction des polynômes.
+Choix 12: Limite d'un des deux polynôme lorsque x tend vers +∞.
+Choix 13: Limite d'une fraction rationnelle lorsque x tend vers +∞.
+Choix 14: Limite d'une fraction rationnelle lorsque x tend vers un point.
+Choix 15: Calculer la dérivée d'un des deux polynômes.
+Choix 16: Calculer la dérivée du produit des deux polynômes.
+choix 17: Calculer la dérivée la fraction des deux polynômes.
+Choix 18: Quitter le programme.
 """
 
-P_a = [0]
-P_b = [0]
+P_a = [0, 0]
+P_b = [0, 0]
 
 while True:
     print(MSG)
@@ -475,7 +497,6 @@ while True:
             print(evaluer_polynome(P_b, point))
         else:
             print("Votre choix n'est pas compréhensible, utiliser la lettre 'A' ou 'B'")
-        
 
     elif choix == "7":
         choix_frac = input(
@@ -521,8 +542,6 @@ while True:
         else:
             print("Votre choix n'est pas compréhensible, utiliser la lettre '1' ou '2'")
 
-
-
     elif choix == "10":
         choix_frac = input(
             "Quel polynôme voulez-vous factorizer [A/B] : ").upper()
@@ -532,8 +551,7 @@ while True:
             print(factoriser(P_b))
         else:
             print("Votre choix n'est pas compréhensible, utiliser la lettre 'A' ou 'B'")
-        
-    
+
     elif choix == "11":
         choix_frac = input(
             "1 pour simplifier A/B\n2 pour simplifier B/A : ").upper()
@@ -542,8 +560,93 @@ while True:
         elif choix_frac == "2":
             print(factoriser_fractions(P_b, P_a))
         else:
-            print("Votre choix n'est pas compréhensible, utiliser la lettre 'A' ou 'B'")
-
+            print("Votre choix n'est pas compréhensible, utiliser la lettre '1' ou '2'")
 
     elif choix == "12":
+        choix_frac = input(
+            "Limite de [A/B] : ").upper()
+        if choix_frac == "A":
+            print(limites_polynomes_infini(P_a))
+        elif choix_frac == "B":
+            print(limites_polynomes_infini(P_b))
+        else:
+            print("Votre choix n'est pas compréhensible, utiliser la lettre 'A' ou 'B'")
+
+    elif choix == "13":
+        choix_frac = choix_frac = input(
+            "1 pour la limite de A/B \n2 pour la limite de B/A ").upper()
+        if choix_frac == "1":
+            print(limites_fractions_rationnlles_infini(P_a, P_b))
+        elif choix_frac == "2":
+            print(limites_fractions_rationnlles_infini(P_b, P_a))
+        else:
+            print("Votre choix n'est pas compréhensible, utiliser la lettre '1' ou '2'")
+
+    elif choix == "14":
+        choix_frac = choix_frac = input(
+            "1 pour la limite de A/B \n2 pour la limite de B/A ").upper()
+        point = input_nombre(
+            "Vers quel point voulez-vous qu'elle tend vers? : ")
+        if choix_frac == "1":
+            print(limites_fractions_rationnlles(P_a, P_b, point))
+        elif choix_frac == "2":
+            print(limites_fractions_rationnlles(P_b, P_a, point))
+        else:
+            print("Votre choix n'est pas compréhensible, utiliser la lettre '1' ou '2'")
+
+    elif choix == "15":
+        choix_frac = input(
+            "Quel polynôme voulez-vous dériver [A/B] : ").upper()
+        if choix_frac == "A":
+            dx = derivee_polynome(P_a)
+            if len(dx) < 2:
+                print(dx[0])
+            else:
+                afficher_polynome(dx)
+        elif choix_frac == "B":
+            dx = derivee_polynome(P_b)
+            if len(dx) < 2:
+                print(dx[0])
+            else:
+                afficher_polynome(dx)
+        else:
+            print("Votre choix n'est pas compréhensible, utiliser la lettre 'A' ou 'B'")
+
+    elif choix == "16":
+        dx = derivee_produit_polynome(P_a, P_b)
+        if len(dx) < 2:
+            print(dx[0])
+        else:
+            afficher_polynome(dx)
+
+    elif choix == "17":
+        choix_frac = input(
+            "Quel fraction voulez-vous dériver A/B(1) ou B/A(2) : ").upper()
+        if choix_frac == "1":
+            nom, denom = derivee_fractions_rationnelles(P_a, P_b)
+            if len(nom) < 2:
+                print(nom[0])
+            else:
+                afficher_polynome(nom)
+            print(7*max(len(nom), len(denom))*"―")
+            if len(denom) < 2:
+                print(denom[0])
+            else:
+                afficher_polynome(denom)
+        
+        elif choix_frac == "2":
+            nom, denom = derivee_fractions_rationnelles(P_b, P_a)
+            if len(nom) < 2:
+                print(nom[0])
+            else:
+                afficher_polynome(nom)
+            print(7*max(len(nom), len(denom))*"―")
+            if len(denom) < 2:
+                print(denom[0])
+            else:
+                afficher_polynome(denom)
+        else:
+            print("Votre choix n'est pas compréhensible, utiliser la lettre '1' ou '2'")
+
+    elif choix == "18":
         break
