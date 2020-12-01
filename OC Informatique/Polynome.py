@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+from os import system
 
 
 ''' ----------------------------------------------------------------------- '''
@@ -94,7 +95,7 @@ def demander_polynome(nom):
     return polynome
 
 
-def afficher_polynome(polynome):
+def afficher_polynome(polynome, fin="\n"):
     ''' Affiche le polynôme '''
     resultat = ""
     deg = len(polynome) - 1
@@ -140,9 +141,9 @@ def afficher_polynome(polynome):
 
     # Signe pour le coefficent le plus grand (le début de la chaine)
     if positive(polynome[-1]):
-        print(resultat[3:])
+        print(resultat[3:], end=fin)
     else:
-        print(f"-{resultat[3:]}")
+        print(f"-{resultat[3:]}", end=fin)
 
 
 def additionner_deux_polynômes(polynome1, polynome2):
@@ -253,7 +254,7 @@ def division_euclidienne(polynome1, polynome2):
     Q = []
 
     if len(polynome1) < len(polynome2):
-        return polynome1, polynome2, [0, 0]
+        return polynome2, 0, polynome1
 
     while len(p1) >= len(p2):
         q = [0 for i in range(len(p1))]
@@ -374,7 +375,7 @@ def limites_fractions_rationnlles(polynome1, polynome2, point):
         return evaluer_polynome(polynome1, point) / evaluer_polynome(polynome2, point)
 
     if evaluer_polynome(polynome1, point) == 0 and evaluer_polynome(polynome2, point) == 0:
-        return evaluer_polynome(dérivée_polynome(polynome1), point) / evaluer_polynome(dérivée_polynome(polynome2), point)
+        return evaluer_polynome(derivee_polynome(polynome1), point) / evaluer_polynome(derivee_polynome(polynome2), point)
 
     dx = 0.000001
     a_plus = evaluer_polynome(polynome1, point+dx) / \
@@ -446,6 +447,7 @@ while True:
     print(MSG)
 
     choix = input("Entrer votre choix : ")
+    system("cls")
 
     if choix == "1":
         choix_frac = input(
@@ -529,16 +531,28 @@ while True:
             "1 pour faire A/B\n2 pour faire B/A : ").upper()
         if choix_frac == "1":
             B, Q, R = division_euclidienne(P_a, P_b)
-            afficher_polynome(P_a)
-            afficher_polynome(B)
-            afficher_polynome(Q)
-            afficher_polynome(R)
+            if isinstance(Q, int):
+                afficher_polynome(P_a, fin=" = (")
+                afficher_polynome(B, fin=") * (")
+                print(Q, end=") + ")
+                afficher_polynome(R)
+            else:
+                afficher_polynome(P_a, fin=" = (")
+                afficher_polynome(B, fin=") * (")
+                afficher_polynome(Q, fin=") + ")
+                afficher_polynome(R)
         elif choix_frac == "2":
             B, Q, R = division_euclidienne(P_b, P_a)
-            afficher_polynome(P_b)
-            afficher_polynome(B)
-            afficher_polynome(Q)
-            afficher_polynome(R)
+            if isinstance(Q, int):
+                afficher_polynome(P_b, fin=" = (")
+                afficher_polynome(B, fin=") * (")
+                print(Q, end=") + ")
+                afficher_polynome(R)
+            else:
+                afficher_polynome(P_a, fin=" = (")
+                afficher_polynome(B, fin=") * (")
+                afficher_polynome(Q, fin=") + ")
+                afficher_polynome(R)
         else:
             print("Votre choix n'est pas compréhensible, utiliser la lettre '1' ou '2'")
 
