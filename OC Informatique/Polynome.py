@@ -445,7 +445,6 @@ P_b = [0, 0]
 
 while True:
     print(MSG)
-
     choix = input("Entrer votre choix : ")
     system("cls")
 
@@ -647,7 +646,7 @@ while True:
                 print(denom[0])
             else:
                 afficher_polynome(denom)
-        
+
         elif choix_frac == "2":
             nom, denom = derivee_fractions_rationnelles(P_b, P_a)
             if len(nom) < 2:
