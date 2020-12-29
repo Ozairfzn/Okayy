@@ -248,10 +248,11 @@ def division_euclidienne(polynome1, polynome2):
         q[len(p1)-len(p2)] = p1[-1]/p2[-1]
 
         Q.insert(0, p1[-1]/p2[-1])
-        p1 = soustraire_deux_polynômes(
-            p1, (multiplier_deux_polynômes(p2, q)))[:-2]
+        p1 = soustraire_deux_polynômes(p1, (multiplier_deux_polynômes(p2, q)))
+        for _ in range(len(p2)):
+            p1.pop(-1)
 
-    return p2, Q, p1
+    return Q, p1
 
 
 def factoriser(polynome):
@@ -479,18 +480,18 @@ while True:
         choix_frac = input(
             "A/B[1] ou B/A[2] : ")
         if choix_frac == "1":
-            B, Q, R = division_euclidienne(P_a, P_b)
+            Q, R = division_euclidienne(P_a, P_b)
             afficher_polynome(P_a, fin=" = (")
-            afficher_polynome(B, fin=") * (")
-            afficher_polynome(Q, fin=") + ")
-            afficher_polynome(R)
+            afficher_polynome(P_b, fin=") * (")
+            afficher_polynome(Q, fin=") + (")
+            afficher_polynome(R, fin=")")
 
         elif choix_frac == "2":
-            B, Q, R = division_euclidienne(P_b, P_a)
+            Q, R = division_euclidienne(P_b, P_a)
             afficher_polynome(P_a, fin=" = (")
-            afficher_polynome(B, fin=") * (")
-            afficher_polynome(Q, fin=") + ")
-            afficher_polynome(R)
+            afficher_polynome(P_b, fin=") * (")
+            afficher_polynome(Q, fin=") + (")
+            afficher_polynome(R, fin=")")
         else:
             print("Votre choix n'est pas compréhensible, utiliser la lettre '1' ou '2'")
 
