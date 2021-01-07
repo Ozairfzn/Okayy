@@ -1,0 +1,204 @@
+% Thierry Zwissig - 28 décembre 2016
+% Collège Sismondi - Genève
+% 2019.02.05
+
+\documentclass[10pt]{article}
+\usepackage{a4wide,amsmath,amssymb,theorem,multicol,epsfig,color}
+\usepackage{tikz} 
+\usepackage{pgf,pgfmath}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{petri}
+\usetikzlibrary{trees}
+\usepackage{verbatim} 
+\usepackage[applemac]{inputenc}
+\usepackage[T1]{fontenc} 
+\usepackage{picins}
+
+ 
+\topmargin=-50pt
+\textheight=650pt
+\textwidth=450pt
+\leftmargin=-20pt 
+ \usepackage{multicol}
+ 
+\ifx\pdfoutput\undefined
+% we are running LaTeX, not pdflatex
+\usepackage{graphicx}
+\else
+% we are running pdflatex, so convert .eps files to .pdf
+%\usepackage[pdftex]{graphicx}
+\usepackage{epstopdf}
+\fi 
+
+\everymath{\displaystyle}
+
+
+\pagestyle{empty}
+
+\begin{document}
+
+\Large
+\begin{center}
+    \textsc{Limite de la fonction $x\mapsto\frac{sin(x)}{x}$ en $0$}\\
+\end{center}
+%\vspace{0.5cm}
+\small
+\textbf{Note :} Ce rŽsumŽ est Žcrit par T. Zwissig. Il est ce qu'attend cet enseignant lors de l'oral de maturitŽ. Ce rŽsumŽ n'est pas une rŽfŽrence pour les autres enseignants, leurs attentes sont sans doute diff\'erentes.\\\vspace{0.5cm}
+
+
+
+
+\normalsize
+\begin{center}
+    \begin{tabular}{ll}
+        %\hline
+                                             &                                                                            \\
+        \textbf{\textcolor{blue}{ThŽorme :}} &                                                                            \\
+                                             & Si $f$ est la fonction dŽfinie par $\displaystyle f(x)=\frac{\sin (x)}{x}$ \\
+                                             & alors $\displaystyle\underset{x\rightarrow 0}{\lim}\,\frac{\sin(x)}{x}=1$. \\
+                                             &                                                                            \\
+        %\hline
+    \end{tabular}
+\end{center}
+
+\bigskip
+
+
+\normalsize
+\paragraph{\textcolor{blue}{Illustration : }} La fonction $f$ a pour reprŽsentation graphique la courbe
+
+\definecolor{qqwuqq}{rgb}{0.,0.39215686274509803,0.}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+    \draw[->,color=black] (-6.937515003514144,0.) -- (6.960535092218531,0.);
+    \foreach \x in {-6.,-5.,-4.,-3.,-2.,-1.,1.,2.,3.,4.,5.,6.}
+    \draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+    \draw[->,color=black] (0.,-1.153502701253418) -- (0.,1.39415627662371);
+    \foreach \y in {-1.,1.}
+    \draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+    \draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
+    \clip(-6.937515003514144,-1.153502701253418) rectangle (6.960535092218531,1.39415627662371);
+    \draw[line width=1.2pt,color=qqwuqq,smooth,samples=100,domain=-6.937515003514144:6.960535092218531] plot(\x,{sin(((\x))*180/pi)/(\x)});
+
+    \draw[color=qqwuqq] (-6.785415960058792,0.45078463620212387) node {$f$};
+
+\end{tikzpicture}
+
+Le domaine de $f$ est $\mathbb{R}\setminus\{0\}$. La reprŽsentation graphique de $f$ laisse supposer que lorsque $x$ tend vers $0$, la limite de $f(x)$ vaut $1$. Pour prouver cela, on calcule les limites ˆ gauche et ˆ droite de $f(x)$ lorsque $x$ tend vers $0$ car un calcul direct oblige \`a lever une ind\'etermination.
+%\vspace{0.5cm}
+
+
+\paragraph{\textcolor{blue}{D\'emonstration : }} \textbf{Calcul de la limite ˆ droite}\\
+
+\begin{multicols}{2}
+    \definecolor{ffqqqq}{rgb}{1.,0.,0.}
+    \definecolor{qqwuqq}{rgb}{0.,0.39215686274509803,0.}
+    \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=4]
+        \draw[->,color=black] (-0.11260634930995121,0.) -- (1.27231890702343,0.);
+        %\foreach \x in {,0.2,0.4,0.6,0.8,1.,1.2}
+        %\draw[shift={(\x,0)},color=black] (0pt,0.5pt) -- (0pt,-0.5pt);
+        \draw[->,color=black] (0.,-0.1469950854071139) -- (0.,1.2791293204281753);
+        %\foreach \y in {,0.2,0.4,0.6,0.8,1.,1.2}
+        %\draw[shift={(0,\y)},color=black] (0.5pt,0pt) -- (-0.5pt,0pt);
+        %\draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
+        \clip(-0.11260634930995121,-0.1469950854071139) rectangle (1.27231890702343,1.2791293204281753);
+        \draw [shift={(0.,0.)},color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0,0) -- (0.:0.0950749603890193) arc
+        (0.:36.86989764584401:0.0950749603890193) -- cycle;
+
+        \draw[color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0.8,0.06782039991194513) -- (0.7321796000880549,0.06782039991194515) -- (0.7321796000880549,0.) -- (0.8,0.) -- cycle;
+
+        \draw(0.,0.) circle (1. cm);
+        \draw [domain=0.0:1.27231890702343] plot(\x,{(-0.--0.6*\x)/0.8});
+        \draw (1.,-0.1469950854071139) -- (1.,1.2791293204281753);
+        \draw (0.8,0.6)-- (1.,0.);
+        \draw [dash pattern=on 1pt off 1pt,color=ffqqqq] (0.8,0.6)-- (0.8,0.);
+
+        \draw [fill=black] (0.,0.) circle (0.5pt);
+        \draw[color=black] (-0.05,-0.05) node {$O$};
+        %\draw[color=black] (-0.48973702551972775,0.8132620145219808) node {$c$};
+        \draw [fill=black] (1.,0.) circle (0.5pt);
+        \draw[color=black] (1.05,-0.05) node {$A(1;0)$};
+        \draw [fill=black] (0.8,0.6) circle (0.5pt);
+        \draw[color=black] (0.81,0.68) node {$B$};
+        \draw [fill=black] (1.,0.75) circle (0.5pt);
+        \draw[color=black] (1.04,0.83) node {$C$};
+        \draw[color=qqwuqq] (0.15,0.05) node {$x$};
+        \draw[color=ffqqqq] (0.7557449555764251,0.2586580789193683) node {$h$};
+        \begin{scriptsize}
+            \draw[color=black] (-0.1,1.05) node[right] {$\mathcal{C}$};
+        \end{scriptsize}
+    \end{tikzpicture}
+
+    \noindent Le cercle $\mathcal{C}$ est le cercle trigonom\'etrique. Donc $h=\sin(x)$ et $AC=\tan(x)$.\\
+    \vspace{0.2cm}
+
+    \noindent L'angle $x$ est dans le 1\textsuperscript{er} quadrant : $0<x<\pi/2$.\\
+    \noindent Pour tout $x$ dans ce quadrant on a $\sin(x)>0$ et $\cos(x)>0$. En particulier $\sin(x)\not =0$.
+
+
+
+
+\end{multicols}
+
+\noindent D\'esignons l'aire du triangle $OAB$ par $\mathcal{A}_{\Delta OAB}$, l'aire du secteur $OAB$ par $\mathcal{A}_{sOAB}$ et l'aire du triangle $OAC$ par $\mathcal{A}_{\Delta OAC}$. On voit sur la figure que
+$$\mathcal{A}_{\Delta OAB} < \mathcal{A}_{sOAB} < \mathcal{A}_{\Delta OAC}$$
+\noindent Or $\mathcal{A}_{\Delta OAB}=\frac{OA \cdot h}{2} = \frac{1 \cdot \sin(x)}{2}=\frac{\sin(x)}{2}$, donc $\mathcal{A}_{\Delta OAB}=\frac{\sin(x)}{2}$.\\
+Comme $\frac{x}{2\pi}=\frac{\mathcal{A}_{sOAB}}{\pi\cdot 1^2}$ on dŽduit que $\mathcal{A}_{sOAB}=\frac{x}{2}$.\\
+Enfin $\mathcal{A}_{\Delta OAC}=\frac{OA \cdot AC}{2}= \frac{1\cdot \tan(x)}{2}=\frac{\tan(x)}{2}$ donne $\mathcal{A}_{\Delta OAC}=\frac{\tan(x)}{2}$.
+\newpage
+\noindent On peut donc Žcrire\\
+\begin{tabular}{llll}
+    $\mathcal{A}_{\Delta OAB} < \mathcal{A}_{sOAB} < \mathcal{A}_{\Delta OAC}$
+     & $\Leftrightarrow$ & $\frac{\sin(x)}{2}< \frac{x}{2}<\frac{\tan(x)}{2}$                                                                           & \\
+     &                   &                                                                                                                                \\
+     &                   & Puisque $\tan(x)=\frac{\sin(x)}{\cos(x)}$ et que $\frac{\frac{\sin(x)}{\cos(x)}}{2}=\frac{\sin(x)}{2\cos(x)}$ on peut Žcrire & \\
+     &                   &                                                                                                                                \\
+     & $\Leftrightarrow$ & $\frac{\sin(x)}{2}< \frac{x}{2}<\frac{\sin(x)}{2\cos(x)}$                                                                    & \\
+     &                   &                                                                                                                                \\
+     &                   & Comme $\sin(x)\not =0$ et que $\displaystyle\frac{2}{\sin(x)}>0$ on peut multiplier chaque membre                            & \\
+     &                   & de l'encadrement par $\displaystyle\frac{2}{\sin(x)}$ sans changer l'ordre. Donc                                               \\
+     &                   &                                                                                                                                \\
+     & $\Leftrightarrow$ & $\frac{2}{\sin(x)}\cdot\frac{\sin(x)}{2}< \frac{2}{\sin(x)}\cdot\frac{x}{2}<\frac{2}{\sin(x)}\cdot\frac{\sin(x)}{2\cos(x)}$  & \\
+     &                   &                                                                                                                                \\
+     &                   & Aprs simplification on a                                                                                                       \\
+     &                   &                                                                                                                                \\
+     & $\Leftrightarrow$ & $1< \frac{x}{\sin(x)}<\frac{1}{\cos(x)}$                                                                                       \\
+     &                   &                                                                                                                                \\
+     &                   & Comme $1$, $\displaystyle\frac{x}{\sin(x)}$ et $\displaystyle\frac{1}{\cos(x)}$ sont tous positifs, leurs inverses             \\
+     &                   & sont ordonnŽs de manire dŽcroissante                                                                                           \\
+     &                   &                                                                                                                                \\
+     & $\Leftrightarrow$ & $1> \frac{\sin(x)}{x}>\cos(x)$                                                                                                 \\
+     &                   &                                                                                                                                \\
+\end{tabular}
+
+On constate que la fonction $x\mapsto \frac{\sin(x)}{x}$ est encadr\'ee par la fonction constante $x\mapsto 1$ et la fonction cosinus. De plus, on a
+\begin{enumerate}
+    \item $\displaystyle\underset{x\rightarrow 0^+}{\lim}\,1=1$
+    \item $\displaystyle\underset{x\rightarrow 0^+}{\lim}\,\cos(x)=\cos(0)=1$ par continuit\'e de la fonction cosinus.
+    \item $\displaystyle\underset{x\rightarrow 0^+}{\lim}\,1=\underset{x\rightarrow 0^+}{\lim}\,\cos(x)$
+\end{enumerate}
+
+Un th\'eor\`eme (le th\'eor\`eme des gendarmes) nous garantit que dans une telle situation (une fonction est encadr\'ee par deux fonctions dont les limites existent et sont les m\^emes) la limite de la fonction encadr\' ee existe et est \'egale \`a celle des deux autres.  On peut donc \'ecrire que $$\displaystyle\underset{x\rightarrow 0^+}{\lim}\,1=\underset{x\rightarrow 0^+}{\lim}\,\frac{\sin(x)}{x}=\underset{x\rightarrow 0^+}{\lim}\,\cos(x)=1$$
+et conclure que $$\displaystyle\underset{x\rightarrow 0^+}{\lim}\,\frac{\sin(x)}{x}=1.$$
+
+
+\newpage
+
+\paragraph{Calcul de la limite ˆ gauche : } Prendre un nombre $x$ n\'egatif revient ˆ dire qu'il existe un nombre $y$ positif pour lequel $x=-y$. De plus, si $x$ tend vers $0$ par la gauche, $y$ tend vers $0$ par la droite. On a donc en rempla\c{c}ant $x$ par $-y$\\
+
+\begin{tabular}{llll}
+    $\displaystyle\underset{x\rightarrow 0^-}{\lim}\,\frac{\sin(x)}{x}$ & $=$ & $\displaystyle\underset{y\rightarrow 0^+}{\lim}\,\frac{\sin(-y)}{-y}$ & en substituant $x$ par $-y$                                      \\
+                                                                        &     &                                                                                                                                          \\
+                                                                        & $=$ & $\displaystyle\underset{y\rightarrow 0^+}{\lim}\,\frac{-\sin(y)}{-y}$ & car la fonction sinus a la propri\'et\'e que $\sin(-y)=-\sin(y)$ \\
+                                                                        &     &                                                                       & pour tout nombre y                                               \\
+                                                                        &     &                                                                                                                                          \\
+                                                                        & $=$ & $\displaystyle\underset{y\rightarrow 0^+}{\lim}\,\frac{\sin(y)}{y}$   & ou encore, apr\`es simplification                                \\
+                                                                        &     &                                                                                                                                          \\
+                                                                        & $=$ & $1$                                                                   & par la premire partie de la d\'emonstration.
+\end{tabular}
+
+\paragraph{Conclusion} Comme $\displaystyle\underset{x\rightarrow 0^-}{\lim}\,\frac{\sin(x)}{x}=1$ et
+$\displaystyle\underset{x\rightarrow 0^+}{\lim}\,\frac{\sin(x)}{x}=1$ il suit que $\displaystyle\underset{x\rightarrow 0}{\lim}\,\frac{\sin(x)}{x}=1$.
+$\square$
+
+\end{document}

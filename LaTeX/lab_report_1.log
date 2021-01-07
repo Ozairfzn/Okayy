@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.24)  1 DEC 2020 19:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.24)  31 DEC 2020 14:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -273,20 +273,74 @@ LaTeX Warning: Reference `fig:boat1' on page 1 undefined on input line 57.
 [1
 
 {c:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 72--72
+c:/Users/ozair/OneDrive/Documents/GitHub/Okayy/LaTeX/lab_report_1.tex:63: Missing $ inserted.
+<inserted text> 
+                $
+l.63 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
 
- []
+c:/Users/ozair/OneDrive/Documents/GitHub/Okayy/LaTeX/lab_report_1.tex:63: Display math should end with $$.
+<to be read again> 
+                   \par 
+l.63 
+     
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
+
+
+c:/Users/ozair/OneDrive/Documents/GitHub/Okayy/LaTeX/lab_report_1.tex:64: LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.64 \end{equation}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+c:/Users/ozair/OneDrive/Documents/GitHub/Okayy/LaTeX/lab_report_1.tex:64: You can't use `\eqno' in vertical mode.
+\endmathdisplay@a ...\df@tag \@empty \else \veqno 
+                                                  \alt@tag \df@tag \fi \ifx ...
+l.64 \end{equation}
+                   
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+c:/Users/ozair/OneDrive/Documents/GitHub/Okayy/LaTeX/lab_report_1.tex:64: Missing $ inserted.
+<inserted text> 
+                $
+l.64 \end{equation}
+                   
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+c:/Users/ozair/OneDrive/Documents/GitHub/Okayy/LaTeX/lab_report_1.tex:64: Display math should end with $$.
+<to be read again> 
+                   \endgroup 
+l.64 \end{equation}
+                   
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
 
 <okay.jpg, id=12, 1288.0622pt x 1900.09875pt>
 File: okay.jpg Graphic file (type jpg)
 <use okay.jpg>
-Package pdftex.def Info: okay.jpg  used on input line 87.
+Package pdftex.def Info: okay.jpg  used on input line 81.
 (pdftex.def)             Requested size: 224.2479pt x 330.78267pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Package natbib Warning: Citation `Smith:2012qr' on page 2 undefined on input line 98.
+Package natbib Warning: Citation `Smith:2012qr' on page 2 undefined on input line 92.
 
 [2]
 No file lab_report_1.bbl.
@@ -310,7 +364,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  79i,10n,85p,775b,753s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on c:/Users/ozair/OneDrive/Documents/GitHub/Okayy/LaTeX/lab_report_1.pdf (3 pages, 646236 bytes).
+Output written on c:/Users/ozair/OneDrive/Documents/GitHub/Okayy/LaTeX/lab_report_1.pdf (3 pages, 647234 bytes).
 PDF statistics:
  63 PDF objects out of 1000 (max. 8388607)
  44 compressed objects within 1 object stream

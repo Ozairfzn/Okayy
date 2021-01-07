@@ -241,7 +241,7 @@ def division_euclidienne(polynome1, polynome2):
     Q = []
 
     if len(polynome1) < len(polynome2):
-        return polynome2, 0, polynome1
+        return [0], polynome2
 
     while len(p1) >= len(p2):
         q = [0 for i in range(len(p1))]
