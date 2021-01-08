@@ -226,6 +226,8 @@ def racines_rationnelles(polynome):
             racine_possibe.append(i / j)
 
     racine_rationnelle = []
+    if a0 == 0:
+        racine_rationnelle.append(0)
     for i in racine_possibe:
         if 0.0000000001 >= evaluer_polynome(polynome, i) >= -0.0000000001:
             racine_rationnelle.append(i)
@@ -260,29 +262,28 @@ def factoriser(polynome):
     res = []
 
     for i in sol:
-        polynome = division_euclidienne(polynome, [-i, 1])[1]
+        polynome = division_euclidienne(polynome, [-i, 1])[0]
         res.append([-i, 1])
     res.append(polynome)
+
+    for i in res:
+        if len(i) == 3:
+            a, b, c = i[2], i[1], i[0]
+            Delta = b**2 - 4*a*c
+
+            if Delta < 0:
+                pass
+            else:
+                res.remove(i)
+                res.append([-(-b-(Delta**0.5))/(2*a), 1])
+                res.append([-(-b+(Delta**0.5))/(2*a), 1])
 
     return res
 
 
 def factoriser_fractions(polynome1, polynome2):
     '''Renvoie une chaine ou la fraction polynôme initaile est si'''
-
-    sol1 = racines_rationnelles(polynome1)
-    res1 = []
-    for i in sol1:
-        polynome1 = division_euclidienne(polynome1, [-i, 1])[1]
-        res1.append([-i, 1])
-    res1.append(polynome1)
-
-    sol2 = racines_rationnelles(polynome2)
-    res2 = []
-    for i in sol2:
-        polynome2 = division_euclidienne(polynome2, [-i, 1])[1]
-        res2.append([-i, 1])
-    res2.append(polynome2)
+    res1, res2 = factoriser(polynome1), factoriser(polynome2)
 
     for i in res1:
         if i in res2:
@@ -401,7 +402,7 @@ P_b = [0]
 while True:
     print(MSG)
     choix = input("Entrer votre choix : ")
-    system("cls")
+    system("clear")
 
     if choix == "1":
         choix_frac = input(
