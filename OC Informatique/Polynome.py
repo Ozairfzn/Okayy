@@ -1,7 +1,5 @@
 import matplotlib.pyplot as plt
 from os import system
-
-
 ''' ----------------------------------------------------------------------- '''
 ''' -------------- Debut Partie Fonctions Complémentaire ------------------ '''
 ''' ----------------------------------------------------------------------- '''
@@ -67,8 +65,8 @@ def polynome_meme_taille(polynome1, polynome2):
 ''' ----------------------------------------------------------------------- '''
 
 
-def demander_polynome(nom):
-    ''' Demander à l'utilisateur de rentrer un polynôme '''
+def demander_polynome(nom="f"):
+    ''' Demande à l'utilisateur de rentrer un polynôme '''
     deg = -1
     while deg < 0:
         deg = input_entier(f"Entrer le degré du polynôme {nom}(x): ")
@@ -209,6 +207,12 @@ def racines_rationnelles(polynome):
     a0 = abs(polynome[0])
     an = abs(polynome[-1])
 
+    if int(a0) != a0 or int(an) != an:
+        return []
+    else:
+        a0 = int(a0)
+        an = int(an)
+
     diva0 = []
     divan = []
     for i in range(1, a0 + 1):
@@ -242,7 +246,7 @@ def division_euclidienne(polynome1, polynome2):
     Q = []
 
     if len(polynome1) < len(polynome2):
-        return [0], polynome2
+        return [0], polynome1
 
     while len(p1) >= len(p2):
         q = [0 for i in range(len(p1))]
@@ -269,14 +273,14 @@ def factoriser(polynome):
     for i in res:
         if len(i) == 3:
             a, b, c = i[2], i[1], i[0]
-            Delta = b**2 - 4*a*c
+            Delta = b**2 - 4 * a * c
 
             if Delta < 0:
                 pass
             else:
                 res.remove(i)
-                res.append([-(-b-(Delta**0.5))/(2*a), 1])
-                res.append([-(-b+(Delta**0.5))/(2*a), 1])
+                res.append([-(-b - (Delta**0.5)) / (2 * a), 1])
+                res.append([-(-b + (Delta**0.5)) / (2 * a), 1])
 
     return res
 
@@ -373,7 +377,6 @@ def derivee_fractions_rationnelles(polynome1, polynome2):
 ''' ----------------------------------------------------------------------- '''
 ''' ----------------- Debut Partie code principal-------------------------- '''
 ''' ----------------------------------------------------------------------- '''
-
 
 MSG = """
 Choix 1:  Entrer/modifier une des polynômes donnée. 
@@ -506,8 +509,8 @@ while True:
 
         elif choix_frac == "2":
             Q, R = division_euclidienne(P_b, P_a)
-            afficher_polynome(P_a, fin=" = (")
-            afficher_polynome(P_b, fin=") * (")
+            afficher_polynome(P_b, fin=" = (")
+            afficher_polynome(P_a, fin=") * (")
             afficher_polynome(Q, fin=") + (")
             afficher_polynome(R, fin=")")
         else:
