@@ -28,4 +28,13 @@ def dechiffre_vigenere(phrase, mot_cle):
 
 
 def mot_prob(phrase, mot):
-    
+    m = len(mot)
+    for i in range(len(phrase)-m):
+        mot_cle = ""
+        for j in range(m):
+            mot_cle += chr((ord(phrase[i+j]) - ord(mot[j])) % 26 + 65)
+        print(mot_cle)
+
+
+mot_prob("WOLVIIXNJVCORUEHDVXLVQBRJTKDYHNCVPIGRNGHZGNSZPXBATRQBRB", "ATTAQUE")
+# jardin
