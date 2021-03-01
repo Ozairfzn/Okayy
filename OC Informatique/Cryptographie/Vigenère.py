@@ -1,17 +1,31 @@
-Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-
-def chiffre_cesar_caractere(car, k):
-    return Alphabet[(Alphabet.index(car) + k) % 26]
-
-
-def chiffre_vigenere(phrase, cle):
+def chiffre_vigenere(phrase, mot_cle):
+    cle = []
+    for i in mot_cle:
+        cle.append(ord(i)-65)
+    
     res = ""
-    indice = 0
+    k = 0
     for i in phrase:
-        if i in Alphabet:
-            res += chiffre_cesar_caractere(i, cle[indice % 3])
-            indice += 1
-        else:
-            res += i
+        res += chr((ord(i)-65 + cle[k%len(cle)]) % 26 + 65)
+        k += 1
+    
     return res
+
+
+
+def dechiffre_vigenere(phrase, mot_cle):
+    cle = []
+    for i in mot_cle:
+        cle.append(-(ord(i)-65))
+    
+    res = ""
+    k = 0
+    for i in phrase:
+        res += chr((ord(i)-65 + cle[k%len(cle)]) % 26 + 65)
+        k += 1
+    
+    return res
+
+
+def mot_prob(phrase, mot):
+    
